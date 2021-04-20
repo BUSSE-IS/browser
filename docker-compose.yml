@@ -9,5 +9,7 @@ services:
     image: balenablocks/browser
     privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
     network_mode: host
-    volumes:
-      - 'settings:/data' # Only required if using PERSISTENT flag (see below)
+    environment:
+      - LAUNCH_URL=http://busseapi:Busse1206@localhost:1880/ui
+      - KIOSK=1
+    restart: always
